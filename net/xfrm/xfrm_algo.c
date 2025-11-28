@@ -290,6 +290,18 @@ static struct xfrm_algo_desc aalg_list[] = {
 	}
 },
 {
+	.name = "hmac(sm3)",
+
+	.uinfo = {
+		.auth = {
+			.icv_truncbits = 128,
+			.icv_fullbits = 256,
+		}
+	},
+
+	.pfkey_supported = 0,
+},
+{
 	.name = "hmac(rmd160)",
 	.compat = "rmd160",
 
@@ -468,6 +480,19 @@ static struct xfrm_algo_desc ealg_list[] = {
 		.sadb_alg_minbits = 128,
 		.sadb_alg_maxbits = 256
 	}
+},
+{
+	.name = "cbc(sm4)",
+
+	.uinfo = {
+		.encr = {
+			.geniv = "echainiv",
+			.blockbits = 128,
+			.defkeybits = 128,
+		}
+	},
+
+	.pfkey_supported = 0,
 },
 {
 	.name = "cbc(serpent)",
